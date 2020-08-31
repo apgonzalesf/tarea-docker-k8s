@@ -28,11 +28,16 @@ docker push apgonzalesf/hero-ui:1.0
 cd kubernetes
  
 kubectl create secret generic postgres-user-pass --from-literal=username=postgres --from-literal=password=postgres   
-kubectl create secret generic postgres-db-url --from-literal=url='jdbc:postgresql://localhost:5432' --from-literal=database=hero
+kubectl create secret generic postgres-db-url --from-literal=url='localhost:5432' --from-literal=database=hero
 
 kubectl apply -f postgres-configmap.yaml
 kubectl apply -f postgres-deployment.yaml
 kubectl apply -f polling-app-server.yaml
+
+minikube service polling-app-server --url
+curl http://172.17.0.3:31059
+
+
 kubectl apply -f polling-app-client.yaml
 
 

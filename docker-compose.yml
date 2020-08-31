@@ -1,0 +1,39 @@
+version: '3'
+services:
+
+  hero-postgres:
+    image: "postgres:9.6-alpine"
+    container_name: hero-postgres
+    volumes:
+      - hero-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=hero
+      - POSTGRES_USER=hero
+      - POSTGRES_PASSWORD=hero
+
+  hero-backend:
+    build: ./hero-backend
+    container_name: hero-backend
+    environment:
+      - DB_SERVER=hero-postgres
+      - POSTGRES_DB=hero
+      - POSTGRES_USER=hero
+      - POSTGRES_PASSWORD=hero
+    ports:
+      - 8080:8080
+    links:
+      - hero-postgres
+
+  hero-ui:
+    build: ./hero-ui
+    container_name: hero-ui
+    ports:
+      - 4200:80
+    links:
+      - hero-backend
+
+
+volumes:
+  hero-data:

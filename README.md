@@ -12,6 +12,8 @@ http://70.37.78.9:4200/
 KUBERNETES
 cd tarea-docker-k8s
 cd hero-backend
+chmod a+x mvnw
+
 docker build --tag hero-backend:1.0 .
 docker tag hero-backend:1.0 apgonzalesf/hero-backend:1.0
 docker push apgonzalesf/hero-backend:1.0

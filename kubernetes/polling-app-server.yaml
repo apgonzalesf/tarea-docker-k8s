@@ -17,7 +17,7 @@ spec:
     spec:                     
       containers:
       - name: polling-app-server
-        image: apgonzalesf/hero-backend:3.0
+        image: apgonzalesf/hero-backend:4.0
         imagePullPolicy: IfNotPresent
         ports:
           - name: http

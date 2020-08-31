@@ -1,6 +1,6 @@
-#tarea-docker-k8s#
+##tarea-docker-k8s##
 
-#docker-compose#
+##docker-compose##
 git clone https://github.com/apgonzalesf/tarea-docker-k8s.git
 cd tarea-docker-k8s
 git checkout tags/docker-compose
@@ -9,10 +9,10 @@ docker-compose up -d --build --force-recreate
 
  
  
-#KUBERNETES#
+##KUBERNETES##
 git clone https://github.com/apgonzalesf/tarea-docker-k8s.git 
 
-#Imagenes# , va cambiando la version
+##Imagenes## , va cambiando la version
 cd hero-backend
 chmod a+x mvnw
 docker build --tag hero-backend:4.0 .
@@ -38,7 +38,7 @@ minikube service polling-app-server --url
 kubectl port-forward service/polling-app-server 8080:8080
 kubectl port-forward service/polling-app-client 8088:80
 
-#extra# 
+##extra##
 kubectl delete --all deployments
 kubectl delete --all services
 kubectl delete pvc --all 

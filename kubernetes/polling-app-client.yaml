@@ -14,7 +14,7 @@ spec:
     spec:                        
       containers:
       - name: polling-app-client
-        image: apgonzalesf/hero-ui:3.0
+        image: apgonzalesf/hero-ui:4.0
         imagePullPolicy: IfNotPresent
         ports:
           - name: http
@@ -22,7 +22,7 @@ spec:
         resources:
           limits:
             cpu: 0.2
-            memory: "10Mi"
+            memory: "250Mi"
 ---
 apiVersion: v1                   
 kind: Service                    
